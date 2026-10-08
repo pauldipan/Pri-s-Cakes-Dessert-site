@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pri's Cake & Ice Cream | Fresh • Sweet • Homemade</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FFF7F8', surface: '#FFF0F4', border: '#F9D1DC',
+              primary: '#D81B60', primaryHover: '#C2185B', deep: '#880E4F',
+              gold: '#D4AF37', goldLight: '#FDE68A', choco: '#3D1520', muted: '#7A5B64'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          },
+          boxShadow: {
+            'soft': '0 8px 30px rgba(216, 27, 96, 0.08)',
+            'glow': '0 0 25px rgba(216, 27, 96, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; background-color: #FFF7F8; color: #3D1520; }
+    .font-brand-title { font-family: 'Playfair Display', serif; }
+    .custom-scrollbar::-webkit-scrollbar { height: 4px; width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #D81B60; border-radius: 9999px; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .shadow-xs { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .line-clamp-1 { display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+    .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    mark { background:#FDE68A; color:inherit; border-radius:4px; padding:0 2px; }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col selection:bg-brand-primary selection:text-white">
+
+  <!-- Top Highlight Bar -->
+  <div class="bg-gradient-to-r from-brand-deep via-brand-primary to-brand-deep text-white text-xs py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-center sm:text-left">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+        <span class="font-medium tracking-wide">👑 Fresh • Sweet • Homemade Cakes, Ice Creams & Chocolates</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-xs font-semibold">
+        <a href="tel:+918101791017" class="hover:text-brand-goldLight transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-phone"></i> 8101791017
+        </a>
+        <span>|</span>
+        <span class="text-pink-100"><i class="fa-solid fa-truck-fast"></i> Instant WhatsApp Booking</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky block: header + section tabs + category bar -->
+  <div id="stickyTop" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-xs">
+
+    <!-- Main Header -->
+    <header class="border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+
+        <a href="#" class="flex items-center gap-3 shrink-0">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full p-0.5 bg-gradient-to-tr from-brand-primary via-brand-gold to-brand-deep shadow-md flex items-center justify-center">
+            <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center overflow-hidden border border-pink-100">
+              <i class="fa-solid fa-crown text-[10px] text-brand-gold -mb-1"></i>
+              <span class="font-brand-title font-bold text-xs sm:text-sm text-brand-primary italic">Pri's</span>
+              <span class="text-[8px] font-bold text-brand-choco tracking-tight uppercase">Cake</span>
+            </div>
+          </div>
+          <div class="leading-tight">
+            <div class="flex items-center gap-1.5">
+              <span class="font-brand-title font-bold text-xl sm:text-2xl text-brand-choco tracking-tight">Pri's Cake</span>
+              <span class="text-brand-gold text-xs">✨</span>
+            </div>
+            <p class="text-[10px] sm:text-xs font-semibold text-brand-primary tracking-wider uppercase">& Ice Cream</p>
+          </div>
+        </a>
+
+        <!-- Desktop Search -->
+        <div class="hidden md:flex flex-1 max-w-md mx-4 relative">
+          <input type="text" id="desktopSearchInput" oninput="handleSearch(this.value)" autocomplete="off"
+            placeholder="Search..."
+            class="w-full pl-10 pr-9 py-2.5 rounded-full bg-brand-surface border border-brand-border text-xs text-brand-choco focus:outline-none focus:ring-2 focus:ring-brand-primary/40 focus:border-brand-primary transition-all">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-xs text-brand-muted"></i>
+          <button id="desktopClear" onclick="clearSearch()" aria-label="Clear search" class="hidden absolute right-3 top-2.5 w-6 h-6 rounded-full text-brand-muted hover:text-brand-primary text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button id="headerCustomBtn" onclick="openCustomCakeModal()"
+            class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-500 hover:to-brand-gold text-white font-bold text-xs sm:text-sm shadow-sm flex items-center gap-1.5 transition-transform active:scale-95">
+            <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+            <span>Customize Cake</span>
+          </button>
+
+          <a href="https://wa.me/918101791017?text=Hello%20Pri's%20Cake,%20I%20would%20like%20to%20place%20an%20order."
+            target="_blank" rel="noopener"
+            class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-colors">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>8101791017</span>
+          </a>
+
+          <button onclick="toggleMobileSearch()"
+            class="md:hidden w-10 h-10 rounded-full bg-brand-surface border border-brand-border text-brand-primary flex items-center justify-center text-sm"
+            aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Search -->
+      <div id="mobileSearchContainer" class="hidden md:hidden px-4 pb-3 border-t border-brand-border/60 bg-white pt-2.5">
+        <div class="relative">
+          <input type="text" id="mobileSearchInput" oninput="handleSearch(this.value)" autocomplete="off"
+            placeholder="Search..."
+            class="w-full pl-9 pr-9 py-2 rounded-xl bg-brand-surface border border-brand-border text-xs text-brand-choco focus:outline-none focus:ring-1 focus:ring-brand-primary">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-xs text-brand-muted"></i>
+          <button id="mobileClear" onclick="clearSearch()" aria-label="Clear search" class="hidden absolute right-2.5 top-2 w-6 h-6 rounded-full text-brand-muted hover:text-brand-primary text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section Tabs: Cakes / Ice Cream / Chocolates -->
+    <nav class="border-b border-brand-border bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div id="sectionTabs" class="grid grid-cols-3 gap-2 py-2"></div>
+      </div>
+    </nav>
+
+    <!-- Category Bar (changes with the active section) -->
+    <div class="border-b border-brand-border py-2.5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div id="categoryContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Carousel Slider -->
+  <section class="relative bg-gradient-to-b from-brand-surface via-brand-cream to-white overflow-hidden py-4 sm:py-8 border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="relative rounded-3xl overflow-hidden shadow-soft border border-brand-border bg-white min-h-[360px] sm:min-h-[420px] flex items-center">
+
+        <div id="heroSlider" class="w-full flex transition-transform duration-500 ease-out">
+
+          <!-- Slide 1 -->
+          <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-12 gap-6 items-center p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-pink-50 via-white to-rose-50">
+            <div class="md:col-span-7 space-y-3.5 text-center md:text-left">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-brand-primary/10 text-brand-primary border border-brand-primary/20">
+                <i class="fa-solid fa-certificate text-brand-gold"></i> 100% Fresh & Homemade
+              </span>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-brand-choco font-brand-title leading-tight">
+                Celebrate Delicious Moments With <span class="text-brand-primary italic">Pri's Cakes</span>
+              </h1>
+              <p class="text-xs sm:text-sm text-brand-muted max-w-lg mx-auto md:mx-0 leading-relaxed">
+                Handcrafted premium cakes, rich ice creams and homemade chocolates, made fresh with love for your birthdays, weddings, anniversaries, and milestones.
+              </p>
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                <a href="#catalog" class="px-6 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 flex items-center gap-2">
+                  <i class="fa-solid fa-cake-candles"></i> Explore Menu
+                </a>
+                <button onclick="openCustomCakeModal()" class="px-5 py-2.5 rounded-full bg-white hover:bg-brand-surface border border-brand-border text-brand-choco text-xs sm:text-sm font-bold shadow-xs transition-colors flex items-center gap-2">
+                  <i class="fa-solid fa-image text-brand-gold"></i> Upload Design
+                </button>
+              </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+              <div class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full p-2 bg-gradient-to-tr from-brand-primary via-brand-gold to-pink-200 shadow-glow flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                  alt="Pri's Signature Cake"
+                  class="w-full h-full object-cover rounded-full border-4 border-white shadow-inner"
+                  onerror="this.src='https://placehold.co/600x600/D81B60/ffffff?text=Pri%27s+Cakes'">
+                <div class="absolute -bottom-2 bg-white px-4 py-1.5 rounded-full shadow-md border border-brand-border text-center">
+                  <span class="text-xs font-bold text-brand-deep">Order on WhatsApp 📲</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-12 gap-6 items-center p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-amber-50 via-white to-pink-50">
+            <div class="md:col-span-7 space-y-3.5 text-center md:text-left">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-amber-100 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-crown text-amber-600"></i> Bespoke Designs
+              </span>
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-brand-choco font-brand-title leading-tight">
+                Have a Dream Cake in Mind? <br><span class="text-brand-gold italic">We Will Bake It!</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-brand-muted max-w-lg mx-auto md:mx-0 leading-relaxed">
+                Upload your reference photo from Pinterest or Instagram. Choose your flavor, sponge type, and pound weight for instant customized quote over WhatsApp.
+              </p>
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                <button onclick="openCustomCakeModal()" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-gold to-amber-600 hover:from-amber-600 hover:to-brand-gold text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 flex items-center gap-2">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Customize Your Cake Now
+                </button>
+                <button onclick="switchSection('cakes','Theme Cakes')" class="px-5 py-2.5 rounded-full bg-white hover:bg-brand-surface border border-brand-border text-brand-choco text-xs sm:text-sm font-bold shadow-xs">
+                  View Trending Themes
+                </button>
+              </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+              <div class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full p-2 bg-gradient-to-tr from-amber-400 via-rose-300 to-brand-primary shadow-glow flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80"
+                  alt="Customized Cake"
+                  class="w-full h-full object-cover rounded-full border-4 border-white shadow-inner"
+                  onerror="this.src='https://placehold.co/600x600/D4AF37/ffffff?text=Custom+Design'">
+                <div class="absolute -bottom-2 bg-white px-4 py-1.5 rounded-full shadow-md border border-brand-border text-center">
+                  <span class="text-xs font-bold text-amber-700">Any Theme or Character</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-12 gap-6 items-center p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-rose-50 via-white to-pink-100">
+            <div class="md:col-span-7 space-y-3.5 text-center md:text-left">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-brand-primary/10 text-brand-primary border border-brand-primary/20">
+                <i class="fa-solid fa-utensils text-brand-gold"></i> Party Favors & Snacking
+              </span>
+              <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-brand-choco font-brand-title leading-tight">
+                Dessert & Cup Cakes <br><span class="text-brand-primary italic">Starting at Just ₹50!</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-brand-muted max-w-lg mx-auto md:mx-0 leading-relaxed">
+                Clear dome cups layered with moist sponge, fresh cream, and chocolate chips. Includes free wooden spoons. Perfect for quick cravings, school tiffins, and cafe retail counters.
+              </p>
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                <button onclick="switchSection('cakes','Dessert Cups')" class="px-6 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 flex items-center gap-2">
+                  <i class="fa-solid fa-basket-shopping"></i> View Dessert Cups
+                </button>
+                <a href="https://wa.me/918101791017?text=Hello%20Pri's%20Cake,%20I%20am%20interested%20in%20wholesale%20cups%20for%20my%20shop." target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-xs flex items-center gap-1.5">
+                  <i class="fa-solid fa-store"></i> Retail Inquiries
+                </a>
+              </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+              <div class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full p-2 bg-gradient-to-tr from-brand-primary via-rose-300 to-amber-200 shadow-glow flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=700&q=80"
+                  alt="Dessert Cups"
+                  class="w-full h-full object-cover rounded-full border-4 border-white shadow-inner"
+                  onerror="this.src='https://placehold.co/600x600/D81B60/ffffff?text=Dessert+Cups'">
+                <div class="absolute -bottom-2 bg-white px-4 py-1.5 rounded-full shadow-md border border-brand-border text-center">
+                  <span class="text-xs font-bold text-brand-deep">Spoon Attached • Ready to Eat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button onclick="prevSlide()"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-brand-choco shadow-md flex items-center justify-center text-xs transition-colors"
+          aria-label="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextSlide()"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-brand-choco shadow-md flex items-center justify-center text-xs transition-colors"
+          aria-label="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+          <button onclick="goToSlide(0)" aria-label="Slide 1" class="slider-dot w-6 h-2 rounded-full bg-brand-primary transition-all"></button>
+          <button onclick="goToSlide(1)" aria-label="Slide 2" class="slider-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
+          <button onclick="goToSlide(2)" aria-label="Slide 3" class="slider-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <main id="catalog" class="flex-1 py-8 sm:py-12 scroll-mt-52">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div>
+          <h2 id="currentCategoryTitle" class="text-xl sm:text-2xl font-extrabold text-brand-choco font-brand-title"></h2>
+          <p id="catalogSubtitle" class="text-xs text-brand-muted"></p>
+        </div>
+
+        <div class="flex items-center gap-2 self-start sm:self-center">
+          <span id="productCountBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-brand-surface border border-brand-border text-brand-primary"></span>
+          <button id="clearFilterBtn" onclick="resetFilters()" class="hidden text-xs text-brand-muted hover:text-brand-primary font-semibold underline">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+      <div id="emptyCatalog" class="hidden text-center py-14 px-4 space-y-3 bg-white rounded-3xl border border-brand-border max-w-md mx-auto my-8 shadow-soft"></div>
+
+    </div>
+  </main>
+
+  <!-- Features -->
+  <section class="py-12 bg-white border-t border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+
+        <div class="p-4 rounded-2xl bg-brand-surface/60 border border-brand-border/60 space-y-2">
+          <div class="w-10 h-10 mx-auto rounded-full bg-pink-100 text-brand-primary flex items-center justify-center text-base"><i class="fa-solid fa-heart"></i></div>
+          <h4 class="font-bold text-xs sm:text-sm text-brand-choco">Made With Love</h4>
+          <p class="text-[11px] text-brand-muted">Homemade freshness with selected premium ingredients.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-surface/60 border border-brand-border/60 space-y-2">
+          <div class="w-10 h-10 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-base"><i class="fa-solid fa-leaf"></i></div>
+          <h4 class="font-bold text-xs sm:text-sm text-brand-choco">100% Eggless Option</h4>
+          <p class="text-[11px] text-brand-muted">Pure vegetarian preparation available on every single flavor.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-surface/60 border border-brand-border/60 space-y-2">
+          <div class="w-10 h-10 mx-auto rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-base"><i class="fa-solid fa-crown"></i></div>
+          <h4 class="font-bold text-xs sm:text-sm text-brand-choco">Bespoke Themes</h4>
+          <p class="text-[11px] text-brand-muted">Any character, tiered floral, or personalized message design.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-brand-surface/60 border border-brand-border/60 space-y-2">
+          <div class="w-10 h-10 mx-auto rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-base"><i class="fa-brands fa-whatsapp"></i></div>
+          <h4 class="font-bold text-xs sm:text-sm text-brand-choco">Instant WhatsApp Care</h4>
+          <p class="text-[11px] text-brand-muted">Direct discussion on 8101791017 for seamless orders.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-choco text-white pt-12 pb-8 border-t-4 border-brand-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 text-xs">
+
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-white p-0.5 flex items-center justify-center text-brand-primary">
+              <i class="fa-solid fa-cake-candles text-lg"></i>
+            </div>
+            <div>
+              <span class="font-brand-title font-bold text-xl block text-white">Pri's Cake</span>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold block">& Ice Cream</span>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed text-xs max-w-sm">
+            Handcrafted with devotion. Fresh, sweet, and homemade delights made right for your celebrations. Custom design cakes, ice creams, chocolates and ready-to-eat dessert cups.
+          </p>
+          <div class="pt-1 text-[11px] font-semibold text-brand-goldLight">
+            <span>✨ Made with Love • Fresh • Sweet • Homemade</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-2 text-white/70">
+          <h5 class="text-sm font-bold text-white mb-3">Shop</h5>
+          <ul class="space-y-1.5">
+            <li><a href="javascript:void(0)" onclick="switchSection('cakes','Birthday')" class="hover:text-brand-gold transition-colors">Birthday Cakes</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('cakes','Wedding')" class="hover:text-brand-gold transition-colors">Wedding & Engagement</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('cakes','Anniversary')" class="hover:text-brand-gold transition-colors">Anniversary Specials</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('cakes','Rice Ceremony')" class="hover:text-brand-gold transition-colors">Rice Ceremony / Mukhe Bhaat</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('cakes','Theme Cakes')" class="hover:text-brand-gold transition-colors">Kids & Fondant Themes</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('icecream')" class="hover:text-brand-gold transition-colors">Ice Creams</a></li>
+            <li><a href="javascript:void(0)" onclick="switchSection('chocolates')" class="hover:text-brand-gold transition-colors">Chocolates</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5 text-white/70">
+          <h5 class="text-sm font-bold text-white mb-3">Contact & Orders</h5>
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-brand-gold"></i>
+            <a href="tel:+918101791017" class="text-white font-bold text-sm">8101791017</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+            <span>Official WhatsApp: +91 8101791017</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-clock text-brand-gold"></i>
+            <span>Order Timings: 9:00 AM – 10:00 PM (Everyday)</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-brand-gold"></i>
+            <span>Local delivery & pickup available</span>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/50 text-center sm:text-left">
+        <p>© <span id="yearPlaceholder"></span> Pri's Cake & Ice Cream. All rights reserved.</p>
+        <p class="text-brand-gold/80">Direct Booking System via WhatsApp</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918101791017?text=Hello%20Pri's%20Cake,%20I%20would%20like%20to%20place%20an%20order."
+    target="_blank" rel="noopener"
+    class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg flex items-center justify-center text-2xl transition-transform hover:scale-110 active:scale-95 border-2 border-white"
+    title="Chat with Pri's Cake on WhatsApp" aria-label="WhatsApp Chat">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-brand-primary rounded-full border-2 border-white animate-pulse"></span>
+  </a>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto custom-scrollbar border border-brand-border shadow-2xl relative transform scale-95 transition-transform duration-300">
+      <button onclick="closeProductModal()"
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-brand-choco shadow-sm flex items-center justify-center transition-colors"
+        aria-label="Close Modal">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="modalContent" class="p-6 space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cake Modal -->
+  <div id="customCakeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-brand-border shadow-2xl relative transform scale-95 transition-transform duration-300">
+
+      <button onclick="closeCustomCakeModal()"
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface hover:bg-brand-primary hover:text-white text-brand-choco shadow-sm flex items-center justify-center transition-colors"
+        aria-label="Close Customizer">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="p-6 bg-gradient-to-r from-pink-50 via-brand-surface to-amber-50 border-b border-brand-border">
+        <div class="flex items-center gap-2 text-brand-primary text-xs font-bold uppercase tracking-wider mb-1">
+          <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
+          <span>Bespoke Design Service</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-brand-choco font-brand-title">Customize Your Dream Cake</h3>
+        <p class="text-xs text-brand-muted mt-1">
+          Upload any design photo, pick your flavor & pounds. All details will be sent directly to Pri's Cake on WhatsApp (+91 8101791017).
+        </p>
+      </div>
+
+      <form id="customCakeForm" onsubmit="handleCustomCakeSubmit(event)" class="p-6 space-y-4 text-xs">
+
+        <div>
+          <label class="block font-bold text-brand-choco mb-1.5">Reference Cake Photo (From Phone / PC) *</label>
+          <div class="relative border-2 border-dashed border-brand-border hover:border-brand-primary rounded-2xl p-4 text-center bg-brand-surface/40 transition-colors cursor-pointer group" onclick="document.getElementById('customCakeImageInput').click()">
+            <input type="file" id="customCakeImageInput" accept="image/*" class="hidden" onchange="previewCustomImage(event)">
+            <div id="imageUploadPlaceholder" class="space-y-1.5 py-2">
+              <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-primary group-hover:scale-110 transition-transform"></i>
+              <p class="font-bold text-brand-choco">Tap to select photo</p>
+              <p class="text-[10px] text-brand-muted">JPEG, PNG, WEBP (Design preview will be shown below)</p>
+            </div>
+            <div id="imagePreviewContainer" class="hidden relative">
+              <img id="customImagePreview" src="" alt="Selected Custom Design" class="max-h-48 mx-auto rounded-xl shadow-sm border border-brand-border object-contain">
+              <span class="inline-block mt-2 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                <i class="fa-solid fa-check"></i> Photo Ready! (Attach this in WhatsApp chat after opening)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Select Flavor *</label>
+            <select id="customFlavor" required class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+              <option value="Belgian Chocolate Truffle">Belgian Chocolate Truffle</option>
+              <option value="Vanilla Buttercream Bliss">Vanilla Buttercream Bliss</option>
+              <option value="Red Velvet with Cream Cheese">Red Velvet with Cream Cheese</option>
+              <option value="Butterscotch Caramel Crunch">Butterscotch Caramel Crunch</option>
+              <option value="Classic Black Forest">Classic Black Forest</option>
+              <option value="Rasmalai Fusion Cream">Rasmalai Fusion Cream</option>
+              <option value="Mango Delight (Seasonal)">Mango Delight (Seasonal)</option>
+              <option value="Strawberry Rose Swirl">Strawberry Rose Swirl</option>
+              <option value="Pineapple Fresh Cream">Pineapple Fresh Cream</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Dietary / Cake Type *</label>
+            <select id="customType" required class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+              <option value="100% Eggless (Pure Veg)">100% Eggless (Pure Veg)</option>
+              <option value="With Egg (Standard Bakery)">With Egg (Standard Bakery)</option>
+              <option value="Full Fondant Theme 3D">Full Fondant Theme 3D</option>
+              <option value="Semi-Fondant / Cream Based">Semi-Fondant / Cream Based</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Weight / Pound *</label>
+            <select id="customPounds" required class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+              <option value="1 Pound (Serves 4-6)">1 Pound (Serves 4-6)</option>
+              <option value="1.5 Pound (Serves 6-8)">1.5 Pound (Serves 6-8)</option>
+              <option value="2 Pounds (Serves 10-12)" selected>2 Pounds (Serves 10-12)</option>
+              <option value="3 Pounds (2-Tier, Serves 15-18)">3 Pounds (2-Tier, Serves 15-18)</option>
+              <option value="4 Pounds (2-Tier, Serves 20-25)">4 Pounds (2-Tier, Serves 20-25)</option>
+              <option value="5+ Pounds (Grand Tier / Wedding)">5+ Pounds (Grand Tier / Wedding)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Required Date & Time *</label>
+            <input type="text" id="customDeliveryDate" required placeholder="e.g. 15th Nov, 6:00 PM"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-brand-choco mb-1">Message on Cake (Optional)</label>
+          <input type="text" id="customMessage" placeholder="e.g. Happy 5th Birthday Arav / Happy 25th Anniversary"
+            class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 border-t border-brand-border">
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Your Name *</label>
+            <input type="text" id="customCustomerName" required placeholder="e.g. Ananya Das"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+          </div>
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Your WhatsApp Number *</label>
+            <input type="tel" id="customCustomerPhone" required placeholder="e.g. 9876543210"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border bg-white text-xs text-brand-choco focus:ring-2 focus:ring-brand-primary/30 outline-none">
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Send Custom Design to WhatsApp (8101791017)</span>
+        </button>
+
+        <p class="text-[10px] text-center text-brand-muted">
+          ℹ️ When WhatsApp opens, simply paste or attach your saved photo to discuss pricing and confirmation!
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const BUSINESS_PHONE = "918101791017";
+
+    /* =====================================================
+       SECTIONS: each section has its own categories, search
+       placeholder and titles. Edit here to change a section.
+       ===================================================== */
+    const sections = {
+      cakes: {
+        label: 'Cakes', icon: 'fa-cake-candles',
+        allTitle: 'All Cakes & Creations',
+        subtitle: 'Tap any cake to see details, choose quantity, and book directly on WhatsApp.',
+        placeholder: 'Search cakes: birthday, chocolate, fondant, truffle...',
+        categories: [
+          { id: 'All', name: 'All Cakes', icon: 'fa-cake-candles' },
+          { id: 'Whats Trending', name: "What's Trending", icon: 'fa-fire' },
+          { id: 'Birthday', name: 'Birthday', icon: 'fa-gifts' },
+          { id: 'Wedding', name: 'Wedding', icon: 'fa-ring' },
+          { id: 'Anniversary', name: 'Anniversary', icon: 'fa-heart' },
+          { id: 'Rice Ceremony', name: 'Rice Ceremony', icon: 'fa-bowl-rice' },
+          { id: 'Most Popular', name: 'Most Popular', icon: 'fa-star' },
+          { id: 'Theme Cakes', name: 'Theme Cakes', icon: 'fa-wand-magic-sparkles' },
+          { id: 'Dessert Cups', name: 'Dessert Cups', icon: 'fa-martini-glass-citrus' },
+          { id: 'Customized Cake', name: 'Customized Cake', icon: 'fa-sliders', isSpecial: true }
+        ]
+      },
+      icecream: {
+        label: 'Ice Cream', icon: 'fa-ice-cream',
+        allTitle: 'All Ice Creams',
+        subtitle: 'Homemade ice creams churned fresh. Tap any item to book on WhatsApp.',
+        placeholder: 'Search ice cream: mango, vanilla, fudge, tub...',
+        categories: [
+          { id: 'All', name: 'All Ice Creams', icon: 'fa-ice-cream' },
+          { id: 'Whats Trending', name: "What's Trending", icon: 'fa-fire' },
+          { id: 'Most Popular', name: 'Most Popular', icon: 'fa-star' },
+          { id: 'Tubs', name: 'Tubs', icon: 'fa-jar' },
+          { id: 'Cups', name: 'Cups', icon: 'fa-cup-straw' }
+        ]
+      },
+      chocolates: {
+        label: 'Chocolates', icon: 'fa-cookie-bite',
+        allTitle: 'All Chocolates',
+        subtitle: 'Handmade chocolates and gift boxes. Tap any item to book on WhatsApp.',
+        placeholder: 'Search chocolates: dark, truffle, gift box...',
+        categories: [
+          { id: 'All', name: 'All Chocolates', icon: 'fa-cookie-bite' },
+          { id: 'Whats Trending', name: "What's Trending", icon: 'fa-fire' },
+          { id: 'Most Popular', name: 'Most Popular', icon: 'fa-star' },
+          { id: 'Gift Boxes', name: 'Gift Boxes', icon: 'fa-gift' },
+          { id: 'Bars', name: 'Chocolate Bars', icon: 'fa-bars' },
+          { id: 'Truffles', name: 'Truffles', icon: 'fa-circle' }
+        ]
+      }
+    };
+
+    /* =====================================================
+       PRODUCTS: "section" decides where the item appears.
+       Items marked SAMPLE are placeholders - replace them.
+       ===================================================== */
+    const products = [
+      /* ---------- CAKES ---------- */
+      {
+        id: 'cake-rose-gold', section: 'cakes',
+        name: 'Pri’s Signature Rose & Gold Celebration',
+        category: ['Birthday', 'Anniversary', 'Most Popular'],
+        price: 650, pound: '1.5 lb',
+        flavor: 'Vanilla Buttercream & White Truffle',
+        type: '100% Eggless',
+        desc: 'Handcrafted floral rosettes, edible golden pearls, and velvety smooth cream layers. Created to match our signature brand centerpiece.',
+        image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80',
+        badge: 'Brand Signature'
+      },
+      {
+        id: 'cake-choco-truffle', section: 'cakes',
+        name: 'Belgian Dark Chocolate Truffle',
+        category: ['Birthday', 'Most Popular', 'Whats Trending'],
+        price: 550, pound: '1 lb',
+        flavor: 'Rich Dutch Chocolate Ganache',
+        type: '100% Eggless',
+        desc: 'Silky 55% dark chocolate ganache draped over soft moist sponge, topped with chocolate curls and gold leaf dust.',
+        image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80',
+        badge: 'Best Seller'
+      },
+      {
+        id: 'cake-wedding-tier', section: 'cakes',
+        name: 'Grand Floral 3-Tier Wedding Cake',
+        category: ['Wedding'],
+        price: 2400, pound: '4 lb',
+        flavor: 'French Vanilla & Strawberry Coulis',
+        type: 'Eggless / With Egg',
+        desc: 'Majestic 3-tier celebration cake draped in ivory royal icing, cascades of pink handcrafted sugar roses, and gold trim.',
+        image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80',
+        badge: 'Wedding Special'
+      },
+      {
+        id: 'cake-anniversary-heart', section: 'cakes',
+        name: 'Crimson Velvet Heart Anniversary',
+        category: ['Anniversary', 'Most Popular'],
+        price: 600, pound: '1.5 lb',
+        flavor: 'Red Velvet with Cream Cheese',
+        type: '100% Eggless',
+        desc: 'Heart-shaped red velvet cake layered with authentic Philadelphia cream cheese frosting and dusted with red velvet crumble.',
+        image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80',
+        badge: 'Romantic Favorite'
+      },
+      {
+        id: 'cake-rice-ceremony', section: 'cakes',
+        name: 'Traditional Rice Ceremony Baby Crown Cake',
+        category: ['Rice Ceremony', 'Theme Cakes'],
+        price: 950, pound: '2 lb',
+        flavor: 'Rasmalai & Saffron Pistachio',
+        type: '100% Eggless',
+        desc: 'Specially created for Mukhe Bhaat celebrations with traditional Bengali motifs, edible golden crown topper, and royal blue or pink ribbons.',
+        image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80',
+        badge: 'Mukhe Bhaat Special'
+      },
+      {
+        id: 'cake-jungle-theme', section: 'cakes',
+        name: 'Safari Animals Kids Birthday Theme',
+        category: ['Theme Cakes', 'Birthday'],
+        price: 1100, pound: '2 lb',
+        flavor: 'Butterscotch & Caramel Fudge',
+        type: 'Eggless',
+        desc: 'Playful fondant lions, elephants, and giraffes handcrafted on a pastel green buttercream background. Perfect for baby birthdays.',
+        image: 'https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=700&q=80',
+        badge: 'Kids Favorite'
+      },
+      {
+        id: 'cake-dessert-cup-truffle', section: 'cakes',
+        name: 'Grab & Go Choco Crunch Dessert Cup',
+        category: ['Whats Trending', 'Most Popular', 'Dessert Cups'],
+        price: 50, pound: '1 Cup (Single Serving)',
+        flavor: 'Oreo & Belgian Chocolate',
+        type: '100% Eggless',
+        desc: 'Clear dome cup filled with layers of sponge, whipped cream, and Oreo crumb. Includes complimentary wooden spoon.',
+        image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=700&q=80',
+        badge: 'Only ₹50'
+      },
+      {
+        id: 'cake-dessert-cup-vanilla', section: 'cakes',
+        name: 'Rainbow Funfetti Dessert Cup',
+        category: ['Whats Trending', 'Dessert Cups'],
+        price: 50, pound: '1 Cup (Single Serving)',
+        flavor: 'Vanilla & Rainbow Sprinkles',
+        type: '100% Eggless',
+        desc: 'Fluffy sponge cake, smooth whipped vanilla cream, and festive sprinkles. Ready to enjoy with free wooden spoon attached.',
+        image: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=700&q=80',
+        badge: 'Only ₹50'
+      },
+      {
+        id: 'cake-rasmalai-fusion', section: 'cakes',
+        name: 'Royal Rasmalai Fusion Delight',
+        category: ['Most Popular', 'Anniversary', 'Rice Ceremony'],
+        price: 750, pound: '1.5 lb',
+        flavor: 'Cardamom Saffron Cream & Soft Rasmalai',
+        type: '100% Eggless',
+        desc: 'Soaked in rich saffron milk (rabdi) and filled with chunks of authentic cottage cheese rasmalai, topped with pistachios and rose petals.',
+        image: 'https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&w=700&q=80',
+        badge: 'Festive Classic'
+      },
+      {
+        id: 'cake-black-forest', section: 'cakes',
+        name: 'Authentic German Black Forest',
+        category: ['Birthday', 'Most Popular'],
+        price: 500, pound: '1 lb',
+        flavor: 'Cherry Compote & Vanilla Cream',
+        type: '100% Eggless',
+        desc: 'Chocolate sponge soaked in sweet cherry syrup, stuffed with candied red cherries, fresh whipped cream, and chocolate flakes.',
+        image: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=700&q=80',
+        badge: 'Timeless'
+      },
+      {
+        id: 'cake-princess-doll', section: 'cakes',
+        name: 'Barbie Princess Dress Theme Cake',
+        category: ['Theme Cakes', 'Birthday'],
+        price: 1250, pound: '2.5 lb',
+        flavor: 'Strawberry & White Chocolate',
+        type: 'Eggless',
+        desc: 'Stunning doll cake with handcrafted piped buttercream ruffles in ombré pink and purple shades with sparkling sugar pearls.',
+        image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80',
+        badge: 'Theme Hit'
+      },
+
+      /* ---------- ICE CREAM ---------- */
+      {
+        id: 'ice-choco-fudge-tub', section: 'icecream',
+        name: 'Pri’s Artisanal Choco-Fudge Ice Cream Tub',
+        category: ['Whats Trending', 'Most Popular', 'Tubs'],
+        price: 120, pound: '300 ml Tub',
+        flavor: 'Rich Cream & Swirled Fudge',
+        type: 'Pure Vegetarian',
+        desc: 'Ultra creamy homemade chocolate fudge ice cream churned fresh with real milk cream and chocolate swirl.',
+        image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80',
+        badge: 'Cold Dessert'
+      },
+      { /* SAMPLE - replace with your real item */
+        id: 'ice-mango-tub', section: 'icecream',
+        name: 'Alphonso Mango Ice Cream Tub',
+        category: ['Tubs'],
+        price: 150, pound: '300 ml Tub',
+        flavor: 'Alphonso Mango & Cream',
+        type: 'Pure Vegetarian',
+        desc: 'Smooth homemade ice cream made with ripe mango pulp and fresh cream.',
+        image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=700&q=80',
+        badge: 'Seasonal'
+      },
+      { /* SAMPLE - replace with your real item */
+        id: 'ice-vanilla-cup', section: 'icecream',
+        name: 'Classic Vanilla Bean Ice Cream Cup',
+        category: ['Cups', 'Whats Trending'],
+        price: 40, pound: '1 Cup (100 ml)',
+        flavor: 'Madagascar Vanilla',
+        type: 'Pure Vegetarian',
+        desc: 'Single-serve vanilla bean ice cream cup with a wooden spoon. Perfect for a quick treat.',
+        image: 'https://images.unsplash.com/photo-1488900128323-21503983a07e?auto=format&fit=crop&w=700&q=80',
+        badge: 'Only ₹40'
+      },
+
+      /* ---------- CHOCOLATES ---------- */
+      { /* SAMPLE - replace with your real item */
+        id: 'choco-gift-box', section: 'chocolates',
+        name: 'Assorted Homemade Chocolate Gift Box',
+        category: ['Gift Boxes', 'Most Popular', 'Whats Trending'],
+        price: 450, pound: 'Box of 12',
+        flavor: 'Milk, Dark & Hazelnut Assortment',
+        type: 'Pure Vegetarian',
+        desc: 'A beautifully packed box of 12 handmade chocolates, ideal for gifting on festivals and birthdays.',
+        image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=80',
+        badge: 'Gift Special'
+      },
+      { /* SAMPLE - replace with your real item */
+        id: 'choco-dark-bar', section: 'chocolates',
+        name: 'Homemade Dark Chocolate Bar',
+        category: ['Bars'],
+        price: 120, pound: '80 g Bar',
+        flavor: '60% Dark Chocolate with Almonds',
+        type: 'Pure Vegetarian',
+        desc: 'Rich dark chocolate bar loaded with crunchy roasted almonds.',
+        image: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=700&q=80',
+        badge: 'Handmade'
+      },
+      { /* SAMPLE - replace with your real item */
+        id: 'choco-truffles', section: 'chocolates',
+        name: 'Belgian Chocolate Truffles (6 pcs)',
+        category: ['Truffles', 'Most Popular'],
+        price: 250, pound: 'Box of 6',
+        flavor: 'Belgian Chocolate Ganache',
+        type: 'Pure Vegetarian',
+        desc: 'Melt-in-the-mouth truffles rolled in cocoa powder.',
+        image: 'https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=80',
+        badge: 'Luxury'
+      }
+    ];
+
+    /* =====================================================
+       SEARCH ENGINE
+       - works only inside the active section
+       - multi-word: every word must match (AND)
+       - ranks by relevance (name > category/flavor > type > desc)
+       - understands short forms and Bengali words (aliases)
+       ===================================================== */
+    function normalize(s) {
+      return String(s).toLowerCase()
+        .replace(/[’']/g, '')
+        .replace(/[^a-z0-9\u0980-\u09FF\s]/g, ' ')
+        .replace(/\s+/g, ' ').trim();
+    }
+    function tokenize(q) { return normalize(q).split(' ').filter(Boolean); }
+
+    const aliases = {
+      choco: ['chocolate'], chocolates: ['chocolate'], chocolaty: ['chocolate'],
+      bday: ['birthday'], birthdays: ['birthday'], anniv: ['anniversary'],
+      veg: ['eggless', 'vegetarian'], vegetarian: ['eggless', 'vegetarian'], pure: ['eggless', 'vegetarian'],
+      mukhe: ['rice'], bhaat: ['rice'], bhat: ['rice'], annaprashan: ['rice'], baby: ['rice', 'kids'],
+      kids: ['kids', 'theme'], fondant: ['theme', 'fondant'], character: ['theme'],
+      icecream: ['ice cream'], gelato: ['ice cream'], kulfi: ['ice cream'],
+      gift: ['gift', 'box'], gifting: ['gift', 'box'], hamper: ['gift', 'box'],
+      cup: ['cup', 'cups'], cupcake: ['cup', 'cups'], trending: ['trending'], popular: ['popular'],
+      'জন্মদিন': ['birthday'], 'বিয়ে': ['wedding'], 'বিবাহ': ['wedding'],
+      'অ্যানিভার্সারি': ['anniversary'], 'মুখেভাত': ['rice'], 'অন্নপ্রাশন': ['rice'],
+      'চকলেট': ['chocolate'], 'আইসক্রিম': ['ice cream'], 'কেক': ['cake'],
+      'রসমালাই': ['rasmalai'], 'ট্রাফল': ['truffle'], 'আম': ['mango'], 'ভ্যানিলা': ['vanilla']
+    };
+
+    // pre-compute searchable text once
+    products.forEach(p => {
+      p._n = {
+        name: normalize(p.name),
+        cats: normalize(p.category.join(' ') + ' ' + sections[p.section].label),
+        badge: normalize(p.badge),
+        flavor: normalize(p.flavor),
+        type: normalize(p.type),
+        desc: normalize(p.desc)
+      };
+    });
+
+    function scoreProduct(p, tokens) {
+      let total = 0;
+      for (const t of tokens) {
+        const alts = [t].concat(aliases[t] || []);
+        let best = 0;
+        for (const a of alts) {
+          if (p._n.name.includes(a)) best = Math.max(best, 5);
+          if (p._n.cats.includes(a) || p._n.badge.includes(a)) best = Math.max(best, 3);
+          if (p._n.flavor.includes(a)) best = Math.max(best, 3);
+          if (p._n.type.includes(a)) best = Math.max(best, 2);
+          if (p._n.desc.includes(a)) best = Math.max(best, 1);
+        }
+        if (!best) return 0;
+        total += best;
+      }
+      return total;
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function highlight(text, tokens) {
+      const valid = tokens.filter(t => t.length > 1).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      if (!valid.length) return escapeHtml(text);
+      const re = new RegExp('(' + valid.join('|') + ')', 'gi');
+      let out = '', last = 0, m;
+      while ((m = re.exec(text))) {
+        out += escapeHtml(text.slice(last, m.index)) + '<mark>' + escapeHtml(m[0]) + '</mark>';
+        last = m.index + m[0].length;
+        if (m.index === re.lastIndex) re.lastIndex++;
+      }
+      return out + escapeHtml(text.slice(last));
+    }
+
+    /* =====================================================
+       STATE (each section remembers its own category + search)
+       ===================================================== */
+    const state = {
+      section: 'cakes',
+      cakes: { category: 'All', query: '' },
+      icecream: { category: 'All', query: '' },
+      chocolates: { category: 'All', query: '' }
+    };
+    const cur = () => state[state.section];
+
+    let selectedProduct = null;
+    let modalQuantity = 1;
+    let currentSlide = 0;
+    let sliderInterval = null;
+    let searchTimer = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hashKey = location.hash.replace('#', '');
+      if (sections[hashKey]) state.section = hashKey;
+
+      renderTabs();
+      applySectionUI();
+      startHeroSlider();
+      document.getElementById('yearPlaceholder').textContent = new Date().getFullYear();
+
+      // close modals with Esc or by tapping the dark background
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { closeProductModal(); closeCustomCakeModal(); }
+      });
+      ['productModal', 'customCakeModal'].forEach(id => {
+        document.getElementById(id).addEventListener('click', e => {
+          if (e.target.id === id) { id === 'productModal' ? closeProductModal() : closeCustomCakeModal(); }
+        });
+      });
+    });
+
+    /* ---------- Hero slider ---------- */
+    function startHeroSlider() { sliderInterval = setInterval(nextSlide, 5000); }
+    function goToSlide(i) { currentSlide = i; updateSliderUI(); }
+    function nextSlide() { currentSlide = (currentSlide + 1) % 3; updateSliderUI(); }
+    function prevSlide() { currentSlide = (currentSlide + 2) % 3; updateSliderUI(); }
+    function updateSliderUI() {
+      document.getElementById('heroSlider').style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.slider-dot').forEach((dot, idx) => {
+        dot.className = idx === currentSlide
+          ? "slider-dot w-6 h-2 rounded-full bg-brand-primary transition-all"
+          : "slider-dot w-2 h-2 rounded-full bg-gray-300 transition-all";
+      });
+    }
+
+    /* ---------- Section tabs ---------- */
+    function renderTabs() {
+      const wrap = document.getElementById('sectionTabs');
+      wrap.innerHTML = '';
+      Object.keys(sections).forEach(key => {
+        const s = sections[key];
+        const active = key === state.section;
+        const btn = document.createElement('button');
+        btn.className = `flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+          active ? 'bg-brand-primary text-white shadow-md'
+                 : 'bg-brand-surface text-brand-choco border border-brand-border hover:bg-pink-100'}`;
+        btn.innerHTML = `<i class="fa-solid ${s.icon}"></i><span>${s.label}</span>`;
+        btn.onclick = () => switchSection(key);
+        wrap.appendChild(btn);
+      });
+    }
+
+    function switchSection(key, category) {
+      if (!sections[key]) return;
+      state.section = key;
+      if (category) cur().category = category;
+      history.replaceState(null, '', '#' + key);
+      renderTabs();
+      applySectionUI();
+      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // refresh everything that depends on the active section
+    function applySectionUI() {
+      const s = sections[state.section];
+      const st = cur();
+
+      document.getElementById('desktopSearchInput').placeholder = s.placeholder;
+      document.getElementById('mobileSearchInput').placeholder = s.placeholder;
+      document.getElementById('desktopSearchInput').value = st.query;
+      document.getElementById('mobileSearchInput').value = st.query;
+      toggleClearButtons(st.query);
+
+      // "Customize Cake" only makes sense in the Cakes section
+      document.getElementById('headerCustomBtn').classList.toggle('hidden', state.section !== 'cakes');
+
+      document.getElementById('catalogSubtitle').textContent = s.subtitle;
+      renderCategoryPills();
+      renderCatalog();
+    }
+
+    /* ---------- Categories ---------- */
+    function renderCategoryPills() {
+      const container = document.getElementById('categoryContainer');
+      container.innerHTML = '';
+      const activeCat = cur().category;
+
+      sections[state.section].categories.forEach(cat => {
+        const btn = document.createElement('button');
+        const isActive = cat.id === activeCat;
+
+        if (cat.isSpecial) {
+          btn.className = `shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 shadow-xs ${
+            isActive ? 'bg-brand-gold text-white shadow-md'
+                     : 'bg-gradient-to-r from-amber-50 to-pink-50 text-amber-900 border border-brand-gold hover:bg-amber-100'}`;
+        } else {
+          btn.className = `shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
+            isActive ? 'bg-brand-primary text-white shadow-md'
+                     : 'bg-white text-brand-choco hover:bg-brand-surface border border-brand-border'}`;
+        }
+        btn.innerHTML = `<i class="fa-solid ${cat.icon} text-[11px]"></i> <span>${cat.name}</span>`;
+        btn.onclick = () => filterCategory(cat.id);
+        container.appendChild(btn);
+      });
+    }
+
+    function filterCategory(catId) {
+      if (catId === 'Customized Cake') { openCustomCakeModal(); return; }
+      cur().category = catId;
+      renderCategoryPills();
+      renderCatalog();
+      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetFilters() {
+      const st = cur();
+      st.category = 'All';
+      st.query = '';
+      document.getElementById('desktopSearchInput').value = '';
+      document.getElementById('mobileSearchInput').value = '';
+      toggleClearButtons('');
+      renderCategoryPills();
+      renderCatalog();
+    }
+
+    /* ---------- Search handlers ---------- */
+    function handleSearch(value) {
+      // keep both inputs in sync, update instantly, render after a short pause
+      document.getElementById('desktopSearchInput').value = value;
+      document.getElementById('mobileSearchInput').value = value;
+      cur().query = value;
+      toggleClearButtons(value);
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(renderCatalog, 180);
+    }
+
+    function clearSearch() {
+      handleSearch('');
+      clearTimeout(searchTimer);
+      renderCatalog();
+    }
+
+    function toggleClearButtons(value) {
+      const show = value.trim().length > 0;
+      document.getElementById('desktopClear').classList.toggle('hidden', !show);
+      document.getElementById('mobileClear').classList.toggle('hidden', !show);
+    }
+
+    function toggleMobileSearch() {
+      const container = document.getElementById('mobileSearchContainer');
+      container.classList.toggle('hidden');
+      if (!container.classList.contains('hidden')) document.getElementById('mobileSearchInput').focus();
+    }
+
+    /* ---------- Catalog rendering ---------- */
+    function renderCatalog() {
+      const grid = document.getElementById('productsGrid');
+      const emptyBox = document.getElementById('emptyCatalog');
+      const st = cur();
+      const sec = sections[state.section];
+      const tokens = tokenize(st.query);
+      const rawQuery = st.query.trim();
+
+      let list = products.filter(p => p.section === state.section);
+      if (st.category !== 'All') list = list.filter(p => p.category.includes(st.category));
+
+      if (tokens.length) {
+        list = list.map(p => ({ p, s: scoreProduct(p, tokens) }))
+                   .filter(x => x.s > 0)
+                   .sort((a, b) => b.s - a.s)
+                   .map(x => x.p);
+      }
+
+      const catObj = sec.categories.find(c => c.id === st.category);
+      const catName = catObj ? catObj.name : st.category;
+
+      let title;
+      if (tokens.length) title = `Results for "${rawQuery}"` + (st.category !== 'All' ? ` in ${catName}` : '');
+      else title = st.category === 'All' ? sec.allTitle : catName;
+      document.getElementById('currentCategoryTitle').textContent = title;
+      document.getElementById('productCountBadge').textContent = `Showing ${list.length} ${list.length === 1 ? 'item' : 'items'}`;
+      document.getElementById('clearFilterBtn').classList.toggle('hidden', st.category === 'All' && !tokens.length);
+
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        renderEmpty(tokens, rawQuery);
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+      emptyBox.classList.add('hidden');
+
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-3xl p-3.5 sm:p-4 border border-brand-border shadow-xs hover:shadow-soft transition-all duration-300 flex flex-col justify-between group";
+
+        card.innerHTML = `
+          <div>
+            <div class="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden bg-brand-surface cursor-pointer" onclick="openProductModal('${p.id}')">
+              <img src="${p.image}" alt="${escapeHtml(p.name)}"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x600/FFF0F4/D81B60?text=Pri%27s+Cake'">
+              <span class="absolute top-2.5 left-2.5 bg-brand-primary text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">${escapeHtml(p.badge)}</span>
+              <span class="absolute bottom-2.5 right-2.5 bg-white/90 text-brand-choco text-[10px] font-bold px-2 py-0.5 rounded-lg shadow-xs">⚖️ ${escapeHtml(p.pound)}</span>
+            </div>
+
+            <div class="mt-3.5 space-y-1.5 cursor-pointer" onclick="openProductModal('${p.id}')">
+              <div class="flex items-center gap-1.5 text-[10px] font-bold text-emerald-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>${escapeHtml(p.type)}</span>
+              </div>
+              <h3 class="font-bold text-sm sm:text-base text-brand-choco group-hover:text-brand-primary transition-colors line-clamp-1">${highlight(p.name, tokens)}</h3>
+              <p class="text-[11px] text-brand-muted line-clamp-2 leading-relaxed">${escapeHtml(p.desc)}</p>
+              <p class="text-[11px] font-semibold text-brand-primary pt-0.5">
+                <i class="fa-solid fa-stroopwafel text-[10px] mr-1"></i> ${escapeHtml(p.flavor)}
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between gap-2">
+            <div>
+              <span class="text-xs text-brand-muted block">Price</span>
+              <span class="text-base sm:text-lg font-extrabold text-brand-choco">₹${p.price}</span>
+            </div>
+            <button onclick="openProductModal('${p.id}')"
+              class="px-4 py-2 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold shadow-xs flex items-center gap-1.5 transition-transform active:scale-95">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Book Now</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // "no results" box: also tells the visitor if the word exists in another section
+    function renderEmpty(tokens, rawQuery) {
+      const box = document.getElementById('emptyCatalog');
+      const sec = sections[state.section];
+
+      const others = Object.keys(sections)
+        .filter(k => k !== state.section)
+        .map(k => ({ k, n: tokens.length ? products.filter(p => p.section === k && scoreProduct(p, tokens) > 0).length : 0 }))
+        .filter(o => o.n > 0);
+
+      let html = `
+        <div class="w-16 h-16 mx-auto rounded-full bg-brand-surface text-brand-primary flex items-center justify-center text-2xl">
+          <i class="fa-solid ${sec.icon}"></i>
+        </div>
+        <h3 class="text-base font-bold text-brand-choco">${tokens.length ? 'No matches found' : 'Nothing here yet'}</h3>
+        <p class="text-xs text-brand-muted">${tokens.length
+          ? `We couldn't find "${escapeHtml(rawQuery)}" in ${sec.label}. Try a different word.`
+          : `No items in this category yet. Check back soon!`}</p>`;
+
+      if (others.length) {
+        html += `<div class="pt-1 space-y-2"><p class="text-[11px] font-semibold text-brand-choco">But we found it in:</p>
+          <div class="flex flex-wrap justify-center gap-2">` +
+          others.map(o => `<button onclick="goToOtherSection('${o.k}')" class="px-3.5 py-2 rounded-full bg-brand-surface border border-brand-border text-brand-primary text-xs font-bold hover:bg-pink-100">
+            ${sections[o.k].label} (${o.n})</button>`).join('') +
+          `</div></div>`;
+      }
+
+      html += `<div class="flex flex-wrap justify-center gap-2 pt-2">
+        <button onclick="resetFilters()" class="px-5 py-2.5 rounded-full bg-brand-primary text-white text-xs font-bold shadow-sm">Clear filters</button>`;
+      if (state.section === 'cakes') {
+        html += `<button onclick="openCustomCakeModal()" class="px-5 py-2.5 rounded-full bg-white border border-brand-gold text-amber-900 text-xs font-bold">Customize Your Own Cake</button>`;
+      }
+      html += `</div>`;
+      box.innerHTML = html;
+    }
+
+    // jump to another section carrying the same search word
+    function goToOtherSection(key) {
+      const q = cur().query;
+      state[key].query = q;
+      state[key].category = 'All';
+      switchSection(key);
+    }
+
+    /* ---------- Product modal ---------- */
+    function openProductModal(productId) {
+      const item = products.find(p => p.id === productId);
+      if (!item) return;
+
+      selectedProduct = item;
+      modalQuantity = 1;
+
+      const noteLabel = item.section === 'cakes'
+        ? 'Special Instruction or Message on Cake'
+        : 'Special Instruction (optional)';
+      const notePlaceholder = item.section === 'cakes'
+        ? 'e.g. Happy Birthday Rohit, deliver by 6 PM'
+        : 'e.g. Gift wrapping, deliver by 6 PM';
+
+      document.getElementById('modalContent').innerHTML = `
+        <div class="relative w-full h-56 rounded-2xl overflow-hidden bg-brand-surface shadow-inner">
+          <img src="${item.image}" alt="${escapeHtml(item.name)}" class="w-full h-full object-cover"
+            onerror="this.src='https://placehold.co/600x600/FFF0F4/D81B60?text=Pri%27s+Cake'">
+          <span class="absolute top-3 left-3 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">${escapeHtml(item.badge)}</span>
+        </div>
+
+        <div class="space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+              <i class="fa-solid fa-leaf text-[10px]"></i> ${escapeHtml(item.type)}
+            </span>
+            <span class="text-xs font-bold text-brand-muted">Size: <strong class="text-brand-choco">${escapeHtml(item.pound)}</strong></span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-brand-choco font-brand-title">${escapeHtml(item.name)}</h3>
+          <p class="text-xs text-brand-muted leading-relaxed">${escapeHtml(item.desc)}</p>
+          <div class="p-2.5 rounded-xl bg-brand-surface border border-brand-border text-xs text-brand-choco">
+            <span class="font-bold text-brand-primary">Flavor:</span> ${escapeHtml(item.flavor)}
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-pink-50/60 border border-brand-border flex items-center justify-between">
+          <div>
+            <span class="text-xs text-brand-muted block">Total Price:</span>
+            <span id="modalCalculatedPrice" class="text-xl font-extrabold text-brand-primary">₹${item.price}</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-brand-border shadow-xs">
+            <button onclick="updateModalQty(-1)" class="text-brand-choco hover:text-brand-primary font-bold text-base w-6 h-6 flex items-center justify-center">-</button>
+            <span id="modalQtyDisplay" class="text-xs font-bold w-6 text-center text-brand-choco">1</span>
+            <button onclick="updateModalQty(1)" class="text-brand-choco hover:text-brand-primary font-bold text-base w-6 h-6 flex items-center justify-center">+</button>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Your Name *</label>
+            <input type="text" id="bookingCustomerName" placeholder="e.g. Supriya Sen"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border text-xs text-brand-choco focus:ring-1 focus:ring-brand-primary outline-none">
+          </div>
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">Your WhatsApp Number *</label>
+            <input type="tel" id="bookingCustomerPhone" placeholder="e.g. 9876543210"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border text-xs text-brand-choco focus:ring-1 focus:ring-brand-primary outline-none">
+          </div>
+          <div>
+            <label class="block font-bold text-brand-choco mb-1">${noteLabel}</label>
+            <input type="text" id="bookingCustomerNote" placeholder="${notePlaceholder}"
+              class="w-full px-3 py-2.5 rounded-xl border border-brand-border text-xs text-brand-choco focus:ring-1 focus:ring-brand-primary outline-none">
+          </div>
+        </div>
+
+        <p id="bookingError" class="hidden text-[11px] font-semibold text-red-600 text-center"></p>
+
+        <button onclick="confirmProductWhatsAppBooking()"
+          class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Confirm & Book on WhatsApp</span>
+        </button>
+
+        <p class="text-[10px] text-center text-brand-muted">
+          Your selected item details and quantity will be forwarded to our official WhatsApp (8101791017).
+        </p>
+      `;
+
+      const modal = document.getElementById('productModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.remove('scale-95');
+      modal.querySelector('div').classList.add('scale-100');
+    }
+
+    function updateModalQty(change) {
+      modalQuantity = Math.min(20, Math.max(1, modalQuantity + change));
+      document.getElementById('modalQtyDisplay').textContent = modalQuantity;
+      document.getElementById('modalCalculatedPrice').textContent = `₹${modalQuantity * selectedProduct.price}`;
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productModal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.add('scale-95');
+      modal.querySelector('div').classList.remove('scale-100');
+    }
+
+    function showBookingError(msg) {
+      const el = document.getElementById('bookingError');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    function confirmProductWhatsAppBooking() {
+      if (!selectedProduct) return;
+
+      const name = document.getElementById('bookingCustomerName').value.trim();
+      const phone = document.getElementById('bookingCustomerPhone').value.trim();
+      const notes = document.getElementById('bookingCustomerNote').value.trim() || 'None';
+
+      if (!name) return showBookingError('Please enter your name.');
+      if (phone.replace(/\D/g, '').length < 10) return showBookingError('Please enter a valid 10-digit WhatsApp number.');
+      document.getElementById('bookingError').classList.add('hidden');
+
+      const totalAmount = selectedProduct.price * modalQuantity;
+      const secLabel = sections[selectedProduct.section].label;
+
+      const message = `*👑 PRI'S CAKE & ICE CREAM - NEW ORDER INQUIRY*\n` +
+        `-----------------------------------------\n` +
+        `*Section:* ${secLabel}\n` +
+        `*Item:* ${selectedProduct.name}\n` +
+        `*Category:* ${selectedProduct.category.join(', ')}\n` +
+        `*Size:* ${selectedProduct.pound}\n` +
+        `*Flavor:* ${selectedProduct.flavor}\n` +
+        `*Type:* ${selectedProduct.type}\n` +
+        `*Quantity:* ${modalQuantity}\n` +
+        `*Total Price:* ₹${totalAmount}\n` +
+        `-----------------------------------------\n` +
+        `*Customer Name:* ${name}\n` +
+        `*Customer Contact:* ${phone}\n` +
+        `*Special Notes / Message:* ${notes}\n` +
+        `*Product ID:* ${selectedProduct.id}\n` +
+        `-----------------------------------------\n` +
+        `_Hello Pri's Cake, please confirm availability and delivery slot for this order._`;
+
+      window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+      closeProductModal();
+    }
+
+    /* ---------- Custom cake modal ---------- */
+    function openCustomCakeModal() {
+      const modal = document.getElementById('customCakeModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.remove('scale-95');
+      modal.querySelector('div').classList.add('scale-100');
+    }
+
+    function closeCustomCakeModal() {
+      const modal = document.getElementById('customCakeModal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.add('scale-95');
+      modal.querySelector('div').classList.remove('scale-100');
+    }
+
+    function previewCustomImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('customImagePreview').src = e.target.result;
+          document.getElementById('imageUploadPlaceholder').classList.add('hidden');
+          document.getElementById('imagePreviewContainer').classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function handleCustomCakeSubmit(event) {
+      event.preventDefault();
+
+      const flavor = document.getElementById('customFlavor').value;
+      const type = document.getElementById('customType').value;
+      const pounds = document.getElementById('customPounds').value;
+      const date = document.getElementById('customDeliveryDate').value.trim();
+      const messageOnCake = document.getElementById('customMessage').value.trim() || 'No message';
+      const custName = document.getElementById('customCustomerName').value.trim();
+      const custPhone = document.getElementById('customCustomerPhone').value.trim();
+      const hasImage = !document.getElementById('imagePreviewContainer').classList.contains('hidden');
+
+      const message = `*🎨 PRI'S CAKE - CUSTOM DESIGN INQUIRY*\n` +
+        `-----------------------------------------\n` +
+        `*Customer Name:* ${custName}\n` +
+        `*WhatsApp Number:* ${custPhone}\n` +
+        `*Required Date/Time:* ${date}\n` +
+        `-----------------------------------------\n` +
+        `*Selected Flavor:* ${flavor}\n` +
+        `*Cake Type:* ${type}\n` +
+        `*Selected Weight:* ${pounds}\n` +
+        `*Message on Cake:* "${messageOnCake}"\n` +
+        `*Design Reference:* ${hasImage ? '[Reference Photo attached in this chat]' : 'Standard Custom Cake'}\n` +
+        `-----------------------------------------\n` +
+        `_Hi Pri's Cake, please check my custom requirements and quote the final price._`;
+
+      window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+      closeCustomCakeModal();
+    }
+  </script>
+
+</body>
+</html>
